@@ -1,7 +1,7 @@
-const ListMakanan = {
+const FavoriteRestaurant = {
   async render() {
     return `
-        <h2>List Makanan</h2>
+        <h2>Favorite Food</h2>
       `;
   },
 
@@ -10,4 +10,4 @@ const ListMakanan = {
   },
 };
 
-export default ListMakanan;
+export default FavoriteRestaurant;

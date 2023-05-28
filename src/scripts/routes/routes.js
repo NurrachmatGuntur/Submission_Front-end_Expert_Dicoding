@@ -1,12 +1,12 @@
-import ListMakanan from '../views/pages/list-resto';
-import FavoriteFood from '../views/pages/favorite';
-import Detail from '../views/pages/detail';
+import ListRestaurant from '../views/pages/list-restaurant';
+import FavoriteRestaurant from '../views/pages/favorite-restaurant';
+import DetailRestaurant from '../views/pages/detail-restaurant';
 
 const routes = {
-  '/': ListMakanan, // default page
-  '/list-resto': ListMakanan,
-  '/favorite': FavoriteFood,
-  '/detail/:id': Detail,
+  '/': ListRestaurant, // default page
+  '/list-restaurant': ListRestaurant,
+  '/favorite-restaurant': FavoriteRestaurant,
+  '/detail-restaurant/:id': DetailRestaurant,
 };
 
 export default routes;

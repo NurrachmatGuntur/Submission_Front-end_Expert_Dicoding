@@ -196,6 +196,7 @@ main {
  
 .movie .movie__poster {
   width: 100%;
+  object-fit: cover;
   max-width: 400px;
 }
  
