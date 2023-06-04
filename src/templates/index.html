@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#DB0000"/>
+    
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="manifest" href="./app.webmanifest">
+    <link rel="icon" href="./burger.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
   <!-- HEADER -->
-    <a href="#content" class="skip-link">Menuju ke konten</a>
+    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
     <header class="app-bar">
       <div class="app-bar__menu">
         <button id="hamburgerButton">☰</button>
@@ -19,17 +26,23 @@
       </div>
       <nav id="navigationDrawer" class="app-bar__navigation">
         <ul>
-          <li><a href="#/list-restaurant">Home</a></li>
-          <li><a href="#/favorite-restaurant">Favorite</a></li>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/favorite">Favorite</a></li>
+          <br>
           <li><a href="https://github.com/NurrachmatGuntur">About</a></li>
         </ul>
       </nav>
     </header>
       <!-- Gambar Hero  -->
     <jumbotron>
-      <img class="hero" src="./hero-image_2.jpg" alt="" />
+      <picture class = "hero">
+      <source media="(max-width: 600px)" srcset="./images/hero-image_2.jpg">
+      <source type="image/webp" srcset="./images/hero-image_2.webp">
+      <source type="image/jpeg" srcset="./images/hero-image_2.jpg">
+      <img src="./images/hero-image_2.jpg" alt="Guntur" />
+    </picture>
     </jumbotron>
-    <main id="mainContent"></main>
+    <main id="mainContent" tabindex="0"></main>
        <footer>
         <section class="penutup">
           <div>

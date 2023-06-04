@@ -4,9 +4,9 @@ import DetailRestaurant from '../views/pages/detail-restaurant';
 
 const routes = {
   '/': ListRestaurant, // default page
-  '/list-restaurant': ListRestaurant,
-  '/favorite-restaurant': FavoriteRestaurant,
-  '/detail-restaurant/:id': DetailRestaurant,
+  '/list': ListRestaurant,
+  '/favorite': FavoriteRestaurant,
+  '/detail/:id': DetailRestaurant,
 };
 
 export default routes;

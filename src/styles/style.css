@@ -23,7 +23,7 @@ body {
 .skip-link:focus {
   top: 0;
 }
-
+ 
 .hero {
   height: 400px;
   width: 100%;
@@ -78,6 +78,7 @@ body {
   width: 150px;
   transition: all 0.3s;
   padding: 8px;
+  margin: 10px;
   background-color: white;
   overflow: hidden;
 }
@@ -90,9 +91,13 @@ body {
   display: inline-block;
   text-decoration: none;
   color: black;
-  padding: 8px;
   margin-bottom: 5px;
-  width: 100%;
+  max-width: 44px;
+  height: 44px;
+}
+#hamburgerButton{
+  min-width: 44px;
+  min-height: 44px;
 }
  
 /*
@@ -165,11 +170,16 @@ main {
  
 .movie-item .movie-item__content h3 {
   margin: 0 0 10px 0;
+  max-width: 44px;
+  min-height: 44px;
 }
  
 .movie-item .movie-item__content h3 a {
   color: #db0000;
   text-decoration: none;
+  display: inline-block;
+  max-width: 44px;
+  max-height: 44px;
 }
  
 .movie-item .movie-item__content p {
@@ -192,6 +202,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px 16px;
+  text-align: justify;
 }
  
 .movie .movie__poster {
@@ -202,6 +213,32 @@ main {
  
 .movie .movie__info h4 {
   margin: 8px 0;
+}
+.riview {
+  display: grid;
+  text-align: justify;
+}
+ 
+/*
+  Like
+*/
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
 }
  
  
