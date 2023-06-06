@@ -38,18 +38,14 @@ describe('Liking A Restaurant', () => {
     // eslint-disable-next-line no-undef
     it('should not add a restaurant again when its already liked', async () => {
       await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
-      // Tambahkan film dengan ID 1 ke daftar film yang disukai
       await FavoriteRestaurantIdb.putRestaurant({ id: 1 });
-      // Simulasikan pengguna menekan tombol suka film
       document.querySelector('#likeButton').dispatchEvent(new Event('click'));
-      // tidak ada film yang ganda
+
       // eslint-disable-next-line no-undef
       expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([{ id: 1 }]);
 
       FavoriteRestaurantIdb.deleteRestaurant(1);
     });
-
-    // menggunakan metode xit, bukan it
     // eslint-disable-next-line no-undef
     it('should not add a restaurant when it has no id', async () => {
       await TestFactories.createLikeButtonPresenterWithRestaurant({});
