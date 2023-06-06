@@ -24,7 +24,7 @@ const FavoriteRestaurantIdb = {
       return;
     }
     // eslint-disable-next-line consistent-return
-    return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
   async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
