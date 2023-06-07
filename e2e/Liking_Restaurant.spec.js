@@ -4,33 +4,56 @@ Before(({ I }) => {
   I.amOnPage('/#/favorite');
 });
 
-Scenario('showing empty liked restaurant', async ({ I }) => {
-    await new Promise((r) => setTimeout(r, 3000));
-    let dataRestaurantFavorite = await I.grabNumberOfVisibleElements('.movie-item');
-    if (dataRestaurantFavorite === 0){
-      console.log('Tidak ada data restaurant di daftar favorite');
-    }
-    I.amOnPage('/');
-    await new Promise((r) => setTimeout(r, 3000));
-    I.seeElement('.movie-item a:first-child');
-    I.click('.movie-item a:first-child');
-    await new Promise((r) => setTimeout(r, 3000));
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
-    I.amOnPage('/#/favorite');
-    await new Promise((r) => setTimeout(r, 3000));
-    dataRestaurantFavorite = await I.grabNumberOfVisibleElements('.movie-item');
-    if ( dataRestaurantFavorite === 1){
-      console.log('Berhasil Menambahkan Restaurant kedaftar favorite');
-    }
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
-    await new promise ((r) => setTimeout(r, 3000));
-    I.seeElement('#likeButton');
-    I.click('#likeButton');
-    I.amOnPage('/#/favorite');
-    dataRestaurantFavorite = await I.grabNumberOfVisibleElements('.movie-item');
-    if ( dataRestaurantFavorite === 0){
-      console.log('Berhasil Menghapus Restaurant dari daftar favorite');
-    }
-  });
+Scenario('liking one restaurant', async ({
+  I,
+}) => {
+  I.amOnPage('/');
+
+  I.waitForElement('.movie-item__content a', 10);
+
+  const firstRestaurant = locate('.movie-item__content a').first();
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  I.click(firstRestaurant);
+
+  I.waitForElement('#likeButton', 10);
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.waitForElement('.movie-item');
+
+  const likedRestaurantTitle = await I.grabTextFrom('.movie-item__content');
+
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+});
+
+Scenario('unliking one restaurant', async ({
+  I,
+}) => {
+  I.amOnPage('/');
+
+  I.waitForElement('.movie-item__content a');
+
+  const firstRestaurant = locate('.movie-item__content a').first();
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  I.click(firstRestaurant);
+
+  I.waitForElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.waitForElement('.movie-item');
+
+  const likedRestaurantTitle = await I.grabTextFrom('.movie-item__content');
+
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+
+  I.waitForElement('.movie-item__content a');
+  I.click(firstRestaurant);
+
+  I.waitForElement('#likeButton', 10);
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+
+  I.dontSeeElement('.movie-item__content a');
+});
